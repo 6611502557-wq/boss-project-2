@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>การอบรมเชิงปฏิบัติการแบบลูกผสม(Hybrid)</title>
+    <style>
+        body {
+            font-family: "Sarabun", sans-serif;
+            background-color: #e6f2ff;
+            margin: 0;
+            padding: 0;
+        }
+
+        nav {
+            background-color: #3399ff;
+            padding: 10px;
+            text-align: center;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 15px;
+            font-weight: bold;
+        }
+
+        nav a:hover {
+            text-decoration: underline;
+        }
+
+        form {
+            width: 90%;
+            max-width: 600px;
+            margin: 30px auto;
+            background-color: #fff;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        label {
+            display: block;
+            margin-top: 15px;
+            font-weight: bold;
+        }
+
+        input, button {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            box-sizing: border-box;
+        }
+
+        button {
+            margin-top: 20px;
+            background-color: #3399ff;
+            color: white;
+            border: none;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #2673cc;
+        }
+
+        .image-section {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+
+        .image-section img {
+            width: 100%;
+            max-width: 400px;
+            border-radius: 10px;
+            border: 1px solid #ccc;
+        }
+
+        /* Responsive สำหรับหน้าจอเล็ก */
+        @media (max-width: 500px) {
+            form {
+                padding: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="index.html">หน้าหลัก</a>
+        <a href="schedule.html">กำหนดการ</a>
+        <a href="registration.html">ลงทะเบียน</a>
+        <a href="contact.html">ติดต่อ</a>
+    </nav>
+
+    <form>
+        <div class="image-section">
+            <div>
+                <label>ตัวอย่างสแกนจ่ายเงิน</label>
+                <img src="Png/payment.jpg" alt="ตัวอย่างสแกนจ่ายเงิน">
+            </div>
+            <div>
+                <label>บัญชีธนาคาร</label>
+                <img src="Png/ณัฐนนท์ อุทธิยา.png" alt="บัญชีธนาคาร">
+            </div>
+        </div>
+
+        <label for="number">ช่องระบุยอดเงิน</label>
+        <input type="number" id="number" placeholder="กรอกยอดเงิน">
+
+        <label for="datetime-local">วัน/เวลาที่โอน</label>
+        <input type="datetime-local" id="datetime-local">
+
+        <label for="file">แนบสลิป</label>
+        <input type="file" id="file">
+
+        <button type="button" id="payBtn">แจ้งชำระเงิน</button>
+    </form>
+
+    <script>
+        document.getElementById("payBtn").addEventListener("click", function() {
+            const amount = document.getElementById("number").value;
+            const datetime = document.getElementById("datetime-local").value;
+            const fileInput = document.getElementById("file");
+
+            if(!amount) {
+                alert("กรุณาระบุยอดเงินที่โอน");
+                return;
+            }
+
+            if(!datetime) {
+                alert("กรุณาใส่วันและเวลาที่โอนเงิน");
+                return;
+            }
+
+            if(fileInput.files.length === 0) {
+                alert("คุณยังไม่แนบสลิปการโอน กรุณาแนบไฟล์ก่อน");
+                return;
+            }
+
+            alert("แจ้งชำระเงินสำเร็จ! เจ้าหน้าที่จะตรวจสอบภายใน 24 ชม.");
+            this.textContent = "แจ้งชำระแล้ว";
+            this.disabled = true;
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>การอบรมเชิงปฏิบัติการแบบลูกผสม(Hybrid)</title>
+    <style>
+        body {
+            font-family: "Sarabun", sans-serif;
+            background-color: #e6f2ff;
+            margin: 0;
+            padding: 0;
+        }
+        nav {
+            background-color: #3399ff;
+            padding: 10px;
+            text-align: center;
+        }
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 15px;
+            font-weight: bold;
+        }
+        nav a:hover {
+            text-decoration: underline;
+        }
+        form {
+            width: 80%;
+            max-width: 500px;
+            margin: 30px auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        label {
+            display: block;
+            margin-top: 10px;
+            font-weight: bold;
+        }
+        input, select, textarea {
+            width: 100%;
+            padding: 8px;
+            margin-top: 5px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+        textarea { resize: vertical; }
+        button {
+            margin-top: 15px;
+            padding: 10px 15px;
+            background-color: #3399ff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+        button:hover {
+            background-color: #2673cc;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="index.html">หน้าหลัก</a>
+        <a href="schedule.html">กำหนดการ</a>
+        <a href="payment.html">แจ้งชำระเงิน</a>
+        <a href="contact.html">ติดต่อ</a>
+    </nav>
+
+    <form id="regForm">
+        <label for="flname">ชื่อ-นามสกุล</label>
+        <input type="text" id="flname" placeholder="กรอกชื่อ-นามสกุล">
+
+        <label for="email">อีเมล</label>
+        <input type="email" id="email" placeholder="example@mail.com">
+
+        <label for="tel">เบอร์โทรศัพท์</label>
+        <input type="tel" id="tel" placeholder="0812345678">
+
+        <label for="status">สถานะ</label>
+        <select id="status" name="status">
+            <option value="">-- เลือกสถานะ --</option>
+            <option value="student">นักศึกษา</option>
+            <option value="teacher">ครู/อาจารย์</option>
+            <option value="Educational personnel">บุคลากรทางการศึกษา</option>
+        </select>
+
+        <label for="note">หมายเหตุ/เพิ่มเติม</label>
+        <textarea id="note" rows="4" placeholder="กรอกข้อมูลเพิ่มเติม (ถ้ามี)"></textarea>
+
+        <button type="button" id="submitBtn">ลงทะเบียน</button>
+    </form>
+
+    <script>
+        document.getElementById("submitBtn").addEventListener("click", function() {
+            let missingFields = [];
+
+            const fullname = document.getElementById("flname").value.trim();
+            const email = document.getElementById("email").value.trim();
+            const tel = document.getElementById("tel").value.trim();
+            const status = document.getElementById("status").value.trim();
+
+            if(!fullname) missingFields.push("ชื่อ-นามสกุล");
+            if(!email) missingFields.push("อีเมล");
+            if(!tel) missingFields.push("เบอร์โทรศัพท์");
+            if(!status) missingFields.push("สถานะ");
+
+            if(missingFields.length > 0) {
+                alert("กรุณากรอกข้อมูลให้ครบ: " + missingFields.join(", "));
+            } else {
+                alert("ลงทะเบียนเรียบร้อยแล้ว!");
+                this.disabled = true;
+                this.textContent = "ลงทะเบียนแล้ว";
+            }
+        });
+    </script>
+</body>
+</html>

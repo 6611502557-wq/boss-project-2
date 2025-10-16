@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ลงทะเบียนอบรม</title>
+<style>
+body {
+    font-family: "Sarabun", sans-serif;
+    margin: 40px;
+    background-color: #f9f9f9;
+}
+form {
+    background: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    width: 350px;
+    margin: auto;
+}
+input, button {
+    width: 100%;
+    padding: 8px;
+    margin-top: 5px;
+    margin-bottom: 15px;
+}
+button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+}
+button:hover {
+    background-color: #0056b3;
+}
+</style>
+</head>
+<body>
+
+<h2 style="text-align:center;">แบบฟอร์มลงทะเบียนอบรม</h2>
+
+<form action="https://docs.google.com/forms/d/e/1FAIpQLSfJXXXXXXX/formResponse" method="POST" target="_blank">
+  <label>ชื่อ-นามสกุล:</label>
+  <input type="text" name="entry.1921685027">
+
+  <label>อีเมล:</label>
+  <input type="email" name="entry.0987654321" required>
+
+  <label>เบอร์โทรศัพท์:</label>
+  <input type="text" name="entry.1122334455" required>
+
+  <button type="submit">ลงทะเบียน</button>
+</form>
+
+</body>
+</html>

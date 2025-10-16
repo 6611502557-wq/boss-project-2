@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>การอบรมเชิงปฏิบัติการแบบลูกผสม(Hybrid)</title>
+    <style>
+        body {
+            font-family: "Sarabun", sans-serif;
+            background-color: #e6f2ff;
+            margin: 0;
+            padding: 0;
+        }
+        nav {
+            background-color: #3399ff;
+            padding: 10px;
+            text-align: center;
+        }
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 15px;
+            font-weight: bold;
+        }
+        nav a:hover {
+            text-decoration: underline;
+        }
+        .contact-card {
+            width: 80%;
+            max-width: 400px;
+            margin: 30px auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            text-align: left;
+        }
+        .contact-card p {
+            margin: 10px 0;
+        }
+        #current-time {
+            margin-top: 20px;
+            font-weight: bold;
+            color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="index.html">หน้าหลัก</a>
+        <a href="schedule.html">กำหนดการ</a>
+        <a href="registration.html">ลงทะเบียน</a>
+        <a href="payment.html">แจ้งชำระเงิน</a>
+    </nav>
+
+    <div class="contact-card">
+        <h2>ติดต่อเรา</h2>
+        <p><strong>ชื่อ:</strong> นาย ณัฐนนท์ อุทธิยา</p>
+        <p><strong>เบอร์โทร:</strong> 097-004-7832</p>
+        <p><strong>อีเมล:</strong> biss12373@gmail.com</p>
+
+        <!-- ย่อหน้าสำหรับแสดงเวลาปัจจุบัน -->
+        <p id="current-time"></p>
+    </div>
+
+    <script>
+        // ฟังก์ชันอัปเดตเวลาปัจจุบัน
+        function updateTime() {
+            const now = new Date();
+            document.getElementById("current-time").textContent = "เวลาปัจจุบัน: " + now.toLocaleString();
+        }
+
+        // เรียกครั้งแรก
+        updateTime();
+
+        // อัปเดตทุก 1 วินาที
+        setInterval(updateTime, 1000);
+    </script>
+</body>
+</html>
